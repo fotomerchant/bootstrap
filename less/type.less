@@ -238,7 +238,7 @@ dd {
 
 .dl-horizontal {
   dd {
-    &:extend(.clearfix all); // Clear the floated `dt` if an empty `dd` is present
+    .clearfix();
   }
 
   @media (min-width: @grid-float-breakpoint) {
