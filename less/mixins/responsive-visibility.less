@@ -2,12 +2,14 @@
 
 //
 // More easily include all the states for responsive-utilities.less.
-.responsive-visibility() {
-  display: block !important;
-  table&  { display: table; }
-  tr&     { display: table-row !important; }
-  th&,
-  td&     { display: table-cell !important; }
+.responsive-visibility(@class) {
+  .@{class} {
+    display: block !important;
+  }
+  table.@{class}  { display: table; }
+  tr.@{class}     { display: table-row !important; }
+  th.@{class},
+  td.@{class}     { display: table-cell !important; }
 }
 
 .responsive-invisibility() {

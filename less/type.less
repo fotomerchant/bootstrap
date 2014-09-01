@@ -105,17 +105,32 @@ mark,
 .text-primary {
   .text-emphasis-variant(@brand-primary);
 }
+a.text-primary:hover {
+  .text-emphasis-variant-hover(@brand-primary);
+}
 .text-success {
   .text-emphasis-variant(@state-success-text);
+}
+a.text-success:hover {
+  .text-emphasis-variant-hover(@state-success-text);
 }
 .text-info {
   .text-emphasis-variant(@state-info-text);
 }
+a.text-info:hover {
+  .text-emphasis-variant-hover(@state-info-text);
+}
 .text-warning {
   .text-emphasis-variant(@state-warning-text);
 }
+a.text-warning:hover {
+  .text-emphasis-variant-hover(@state-warning-text);
+}
 .text-danger {
   .text-emphasis-variant(@state-danger-text);
+}
+a.text-danger:hover {
+  .text-emphasis-variant-hover(@state-danger-text);
 }
 
 // Contextual backgrounds
@@ -127,17 +142,32 @@ mark,
   color: #fff;
   .bg-variant(@brand-primary);
 }
+a.bg-primary:hover {
+  .bg-variant-hover(@brand-primary);
+}
 .bg-success {
   .bg-variant(@state-success-bg);
+}
+a.bg-success:hover {
+  .bg-variant-hover(@state-success-bg);
 }
 .bg-info {
   .bg-variant(@state-info-bg);
 }
+a.bg-info:hover {
+  .bg-variant-hover(@state-info-bg);
+}
 .bg-warning {
   .bg-variant(@state-warning-bg);
 }
+a.bg-warning:hover {
+  .bg-variant-hover(@state-warning-bg);
+}
 .bg-danger {
   .bg-variant(@state-danger-bg);
+}
+a.bg-danger:hover {
+  .bg-variant-hover(@state-danger-bg);
 }
 
 

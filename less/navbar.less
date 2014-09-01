@@ -75,15 +75,17 @@
     &.in {
       overflow-y: visible;
     }
+  }
+}
 
-    // Undo the collapse side padding for navbars with containers to ensure
-    // alignment of right-aligned contents.
-    .navbar-fixed-top &,
-    .navbar-static-top &,
-    .navbar-fixed-bottom & {
-      padding-left: 0;
-      padding-right: 0;
-    }
+@media (min-width: @grid-float-breakpoint) {
+  // Undo the collapse side padding for navbars with containers to ensure
+  // alignment of right-aligned contents.
+  .navbar-fixed-top .navbar-collapse,
+  .navbar-static-top .navbar-collapse,
+  .navbar-fixed-bottom .navbar-collapse {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
@@ -176,12 +178,12 @@
   > img {
     display: block;
   }
+}
 
-  @media (min-width: @grid-float-breakpoint) {
-    .navbar > .container &,
-    .navbar > .container-fluid & {
-      margin-left: -@navbar-padding-horizontal;
-    }
+@media (min-width: @grid-float-breakpoint) {
+  .navbar > .container .navbar-brand,
+  .navbar > .container-fluid .navbar-brand {
+    margin-left: -@navbar-padding-horizontal;
   }
 }
 
@@ -509,13 +511,19 @@
     &:focus {
       color: @navbar-default-link-hover-color;
     }
-    &[disabled],
-    fieldset[disabled] & {
+    &[disabled] {
       &:hover,
       &:focus {
         color: @navbar-default-link-disabled-color;
       }
     }
+  }
+}
+
+fieldset[disabled] .navbar-default .btn-link {
+  &:hover,
+  &:focus {
+    color: @navbar-default-link-disabled-color;
   }
 }
 
@@ -644,12 +652,18 @@
     &:focus {
       color: @navbar-inverse-link-hover-color;
     }
-    &[disabled],
-    fieldset[disabled] & {
+    &[disabled] {
       &:hover,
       &:focus {
         color: @navbar-inverse-link-disabled-color;
       }
     }
+  }
+}
+
+fieldset[disabled] .navbar-inverse .btn-link {
+  &:hover,
+  &:focus {
+    color: @navbar-inverse-link-disabled-color;
   }
 }
