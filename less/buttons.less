@@ -41,13 +41,13 @@
   }
 
   &.disabled,
-  &[disabled],
-  fieldset[disabled] & {
-    cursor: not-allowed;
-    pointer-events: none; // Future-proof disabling of clicks
-    .opacity(.65);
-    .box-shadow(none);
+  &[disabled] {
+    .btn-disabled();
   }
+}
+
+fieldset[disabled] .btn {
+  .btn-disabled();
 }
 
 
@@ -57,24 +57,78 @@
 .btn-default {
   .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
 }
+.open > .dropdown-toggle.btn-default {
+  .button-variant-active(@btn-default-color; @btn-default-bg; @btn-default-border);
+}
+.open > .dropdown-toggle.btn-default {
+  .button-variant-active-image();
+}
+fieldset[disabled] .btn-default {
+  .button-variant-disabled(@btn-default-bg; @btn-default-border);
+}
 .btn-primary {
   .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+}
+.open > .dropdown-toggle.btn-primary {
+  .button-variant-active(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+}
+.open > .dropdown-toggle.btn-primary {
+  .button-variant-active-image();
+}
+fieldset[disabled] .btn-primary {
+  .button-variant-disabled(@btn-primary-bg; @btn-primary-border);
 }
 // Success appears as green
 .btn-success {
   .button-variant(@btn-success-color; @btn-success-bg; @btn-success-border);
 }
+.open > .dropdown-toggle.btn-success {
+  .button-variant-active(@btn-success-color; @btn-success-bg; @btn-success-border);
+}
+.open > .dropdown-toggle.btn-success {
+  .button-variant-active-image();
+}
+fieldset[disabled] .btn-success {
+  .button-variant-disabled(@btn-success-bg; @btn-success-border);
+}
 // Info appears as blue-green
 .btn-info {
   .button-variant(@btn-info-color; @btn-info-bg; @btn-info-border);
+}
+.open > .dropdown-toggle.btn-info {
+  .button-variant-active(@btn-info-color; @btn-info-bg; @btn-info-border);
+}
+.open > .dropdown-toggle.btn-info {
+  .button-variant-active-image();
+}
+fieldset[disabled] .btn-info {
+  .button-variant-disabled(@btn-info-bg; @btn-info-border);
 }
 // Warning appears as orange
 .btn-warning {
   .button-variant(@btn-warning-color; @btn-warning-bg; @btn-warning-border);
 }
+.open > .dropdown-toggle.btn-warning {
+  .button-variant-active(@btn-warning-color; @btn-warning-bg; @btn-warning-border);
+}
+.open > .dropdown-toggle.btn-warning {
+  .button-variant-active-image();
+}
+fieldset[disabled] .btn-warning {
+  .button-variant-disabled(@btn-warning-bg; @btn-warning-border);
+}
 // Danger and error appear as red
 .btn-danger {
   .button-variant(@btn-danger-color; @btn-danger-bg; @btn-danger-border);
+}
+.open > .dropdown-toggle.btn-danger {
+  .button-variant-active(@btn-danger-color; @btn-danger-bg; @btn-danger-border);
+}
+.open > .dropdown-toggle.btn-danger {
+  .button-variant-active-image();
+}
+fieldset[disabled] .btn-danger {
+  .button-variant-disabled(@btn-danger-bg; @btn-danger-border);
 }
 
 
@@ -107,16 +161,14 @@
     text-decoration: underline;
     background-color: transparent;
   }
-  &[disabled],
-  fieldset[disabled] & {
-    &:hover,
-    &:focus {
-      color: @btn-link-disabled-color;
-      text-decoration: none;
-    }
+  &[disabled] {
+    .btn-link-disabled-hover(@btn-link-disabled-color);
   }
 }
 
+fieldset[disabled] .btn-link {
+  .btn-link-disabled-hover(@btn-link-disabled-color);
+}
 
 // Button Sizes
 // --------------------------------------------------

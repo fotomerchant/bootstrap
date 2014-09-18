@@ -3,6 +3,28 @@
 // Easily pump out default styles, as well as :hover, :focus, :active,
 // and disabled options for all buttons
 
+.button-variant-disabled(@background, @border) {
+  &,
+  &:hover,
+  &:focus,
+  &.focus,
+  &:active,
+  &.active {
+    background-color: @background;
+	border-color: @border;
+  }
+}
+
+.button-variant-active(@color, @background, @border) {
+  color: @color;
+  background-color: darken(@background, 10%);
+      border-color: darken(@border, 12%);
+}
+
+.button-variant-active-image() {
+  background-image: none;
+}
+
 .button-variant(@color; @background; @border) {
   color: @color;
   background-color: @background;
@@ -47,4 +69,19 @@
   font-size: @font-size;
   line-height: @line-height;
   border-radius: @border-radius;
+}
+
+.btn-disabled() {
+  cursor: not-allowed;
+  pointer-events: none; // Future-proof disabling of clicks
+  .opacity(.65);
+  .box-shadow(none);
+}
+
+.btn-link-disabled-hover(@btn-link-disabled-color) {
+  &:hover,
+  &:focus {
+    color: @btn-link-disabled-color;
+    text-decoration: none;
+  }
 }

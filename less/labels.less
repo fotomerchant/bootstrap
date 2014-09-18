@@ -14,26 +14,26 @@
   vertical-align: baseline;
   border-radius: .25em;
 
-  // Add hover effects, but only for links
-  a& {
-    &:hover,
-    &:focus {
-      color: @label-link-hover-color;
-      text-decoration: none;
-      cursor: pointer;
-    }
-  }
-
   // Empty labels collapse automatically (not available in IE8)
   &:empty {
     display: none;
   }
+}
 
-  // Quick fix for labels in buttons
-  .btn & {
-    position: relative;
-    top: -1px;
+// Add hover effects, but only for links
+a.label {
+  &:hover,
+  &:focus {
+    color: @label-link-hover-color;
+    text-decoration: none;
+    cursor: pointer;
   }
+}
+
+// Quick fix for labels in buttons
+.btn .label {
+  position: relative;
+  top: -1px;
 }
 
 // Colors

@@ -139,19 +139,23 @@ output {
   // disabled if the fieldset is disabled. Due to implementation difficulty, we
   // don't honor that edge case; we style them as disabled anyway.
   &[disabled],
-  &[readonly],
-  fieldset[disabled] & {
+  &[readonly] {
     cursor: not-allowed;
     background-color: @input-bg-disabled;
     opacity: 1; // iOS fix for unreadable disabled content
   }
-
-  // Reset height for `textarea`s
-  textarea& {
-    height: auto;
-  }
 }
 
+fieldset[disabled] .form-control {
+  cursor: not-allowed;
+  background-color: @input-bg-disabled;
+  opacity: 1; // iOS fix for unreadable disabled content
+}
+
+// Reset height for `textarea`s
+textarea.form-control {
+  height: auto;
+}
 
 // Search inputs in iOS
 //
@@ -256,30 +260,47 @@ input[type="month"] {
 input[type="radio"],
 input[type="checkbox"] {
   &[disabled],
-  &.disabled,
-  fieldset[disabled] & {
+  &.disabled {
+    cursor: not-allowed;
+  }
+}
+fieldset[disabled] {
+  input[type="radio"],
+  input[type="checkbox"] {
     cursor: not-allowed;
   }
 }
 // These classes are used directly on <label>s
 .radio-inline,
 .checkbox-inline {
-  &.disabled,
-  fieldset[disabled] & {
+  &.disabled {
+    cursor: not-allowed;
+  }
+}
+fieldset[disabled] {
+ .radio-inline,
+  .checkbox-inline {
     cursor: not-allowed;
   }
 }
 // These classes are used on elements with <label> descendants
 .radio,
 .checkbox {
-  &.disabled,
-  fieldset[disabled] & {
+  &.disabled {
     label {
       cursor: not-allowed;
     }
   }
 }
 
+fieldset[disabled] {
+  .radio,
+  .checkbox {
+    label {
+      cursor: not-allowed;
+    }
+  }
+}
 
 // Static form control text
 //
@@ -314,6 +335,27 @@ input[type="checkbox"] {
   .input-size(@input-height-large; @padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @border-radius-large);
 }
 
+select {
+  &.input-sm,
+  &.form-group-sm .form-control {
+    .select-size(@input-height-small);
+  }
+
+  &.input-lg,
+  &.form-group-lg .form-control {
+	.select-size(@input-height-large);
+  }
+}
+
+textarea,
+select[multiple] {
+  &.input-sm,
+  &.form-group-sm .form-control,
+  &.input-lg,
+  &.form-group-lg .form-control {
+    height: auto;
+  }
+}
 
 // Form control feedback states
 //
